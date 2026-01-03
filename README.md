@@ -231,6 +231,21 @@ cargo test --all
 cargo clippy --all
 ```
 
+<br>
+
+## Roadmap
+
+| Status | Crate | Description |
+|:------:|:------|:------------|
+| :white_check_mark: | **vd_types** | SI units with compile-time dimensional analysis |
+| :white_check_mark: | **vd_math** | Linear algebra, quaternions, lookup tables |
+| :white_check_mark: | **vd_telemetry** | Zero-cost telemetry with ring buffers |
+| :construction: | **vd_tire** | Pacejka Magic Formula tire model |
+| :construction: | **vd_suspension** | Spring-damper systems, anti-roll bars |
+| :construction: | **vd_chassis** | Rigid body dynamics, inertia tensor |
+| :construction: | **vd_powertrain** | Engine, clutch, gearbox, differential |
+| :construction: | **vd_aero** | Drag, downforce, aerodynamic maps |
+
 ---
 
 <div align="center">
