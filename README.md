@@ -198,7 +198,6 @@ cargo clippy --all
 
 ## Performance
 
-| | |
 |:--|:--|
 | **Zero-cost units** | `#[repr(transparent)]` newtypes — same assembly as raw `f64` |
 | **O(log n) lookups** | Binary search with branchless interpolation |
@@ -209,7 +208,6 @@ cargo clippy --all
 
 ## CI
 
-| | | |
 |:--:|:--:|:--:|
 | <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux"> | <img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="macOS"> | <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows"> |
 
