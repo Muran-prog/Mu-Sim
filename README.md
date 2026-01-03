@@ -110,22 +110,42 @@ use vd_math::Lut1D;
 
 ## Architecture
 
-```
-mu-sim/
-│
-├── vd_types          Type-safe SI units
-│   ├── Meters, Seconds, Kilograms...
-│   ├── MetersPerSecond, Newtons, Watts...
-│   └── Compile-time dimensional analysis
-│
-├── vd_math           Mathematical primitives  
-│   ├── Vec3, Mat3, Quat (via nalgebra)
-│   └── Lut1D, Lut2D, Lut3D interpolators
-│
-└── vd_telemetry      Zero-cost telemetry system
-    ├── TelemetryProvider trait
-    ├── NoOpTelemetry (ZST, compiles to nothing)
-    └── MemoryRecorder (ring buffer)
+The engine is built as a modular ecosystem of specialized crates, ensuring strict isolation and fast compilation.
+
+```mermaid
+graph LR
+    subgraph Core [Core Logic]
+        types[vd_types<br/><i>Units & Safety</i>]
+        math[vd_math<br/><i>Linear Algebra & LUTs</i>]
+        telemetry[vd_telemetry<br/><i>Zero-cost Data</i>]
+    end
+
+    subgraph Physics [Simulation Modules]
+        tire[vd_tire]
+        suspension[vd_suspension]
+        powertrain[vd_powertrain]
+        chassis[vd_chassis]
+    end
+
+    %% Dependencies
+    types --> math
+    types --> Physics
+    math --> Physics
+    Physics --> telemetry
+    chassis --> Physics
+Module Breakdown
+<details>
+<summary><b>vd_types</b> — Physical Units</summary>
+Type-safe SI units using Rust's type system to prevent dimensional errors at compile time.
+</details>
+<details>
+<summary><b>vd_math</b> — Linear Algebra & Interpolation</summary>
+Wrappers over <code>nalgebra</code> and high-performance Lookup Tables (LUTs).
+</details>
+<details>
+<summary><b>vd_telemetry</b> — Zero-Cost Telemetry</summary>
+A trait-based system that compiles away to nothing when not in use.
+</details>
 ```
 
 <br>
