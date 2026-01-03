@@ -24,7 +24,7 @@
 
 <br>
 
-<a href="#quick-start">Quick Start</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#architecture">Architecture</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#crates">API</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#performance">Performance</a>
+<a href="#quick-start">Quick Start</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#architecture">Architecture</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#crates">API</a>
 
 <br>
 
@@ -230,30 +230,6 @@ cargo test --all
 # Lint
 cargo clippy --all
 ```
-
-<br>
-
-## Performance
-
-| | |
-|:--|:--|
-| **Zero-cost units** | `#[repr(transparent)]` newtypes — same assembly as raw `f64` |
-| **O(log n) lookups** | Binary search with branchless interpolation |
-| **Zero-cost telemetry** | `NoOpTelemetry` is ZST, all calls inline to nothing |
-| **Inline everything** | `#[inline]` on all hot paths |
-| **Aggressive LTO** | `lto = "fat"`, single codegen unit, stripped symbols |
-
-<br>
-
-## CI
-
-| | | |
-|:--:|:--:|:--:|
-| <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Linux"> | <img src="https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="macOS"> | <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows"> |
-
-<sub>MSRV 1.75 · no_std verified on `thumbv7em-none-eabihf`</sub>
-
-<br>
 
 ---
 
