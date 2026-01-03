@@ -132,7 +132,7 @@ mu-sim/
 
 ## Crates
 
-<details open>
+<details>
 <summary><b>vd_types</b> — Physical Units</summary>
 
 <br>
@@ -153,7 +153,7 @@ let force: Newtons = mass * acceleration;         // F = ma, verified by compile
 
 </details>
 
-<details open>
+<details>
 <summary><b>vd_math</b> — Linear Algebra & Interpolation</summary>
 
 <br>
@@ -181,7 +181,7 @@ let mu = tire.lookup(8.5, 0.12);     // Bilinear interpolation
 
 </details>
 
-<details open>
+<details>
 <summary><b>vd_telemetry</b> — Zero-Cost Telemetry</summary>
 
 <br>
