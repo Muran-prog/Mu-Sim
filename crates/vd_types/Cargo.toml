@@ -1,0 +1,22 @@
+[package]
+name = "vd_types"
+description = "Fundamental physical types and SI units for Vehicle Dynamics Engine"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[features]
+default = []
+std = ["serde?/std"]
+serde = ["dep:serde"]
+
+[dependencies]
+serde = { workspace = true, optional = true }
+libm = "0.2"
+
+[lints]
+workspace = true
+
+[dev-dependencies]

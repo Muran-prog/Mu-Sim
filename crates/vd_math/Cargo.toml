@@ -1,0 +1,22 @@
+[package]
+name = "vd_math"
+description = "Mathematical primitives and lookup tables for Vehicle Dynamics Engine"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[features]
+default = []
+std = ["nalgebra/std", "serde?/std"]
+serde = ["dep:serde", "nalgebra/serde-serialize-no-std"]
+
+[dependencies]
+serde = { workspace = true, optional = true }
+nalgebra = { version = "0.33", default-features = false, features = ["libm"] }
+
+[lints]
+workspace = true
+
+[dev-dependencies]

@@ -1,0 +1,49 @@
+# Build artifacts
+/target/
+**/*.rs.bk
+
+# Cargo
+Cargo.lock
+!Cargo.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Debug
+*.pdb
+*.dSYM/
+
+# Coverage
+*.gcno
+*.gcda
+*.lcov
+coverage/
+tarpaulin-report.html
+
+# Profiling
+perf.data
+perf.data.old
+flamegraph.svg
+cachegrind.out.*
+callgrind.out.*
+
+# Documentation
+/doc/
+/target/doc/
+
+# Benchmarks
+criterion/
+
+# Environment
+.env
+.env.local
+*.local
+
+# OS
+Thumbs.db
+Desktop.ini
