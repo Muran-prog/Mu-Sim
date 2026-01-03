@@ -19,6 +19,17 @@
 <br>
 <br>
 
+<a href="https://github.com/Muran-prog/mu-sim"><img src="https://img.shields.io/github/stars/Muran-prog/mu-sim?style=for-the-badge&logo=github&logoColor=white&color=yellow" alt="Stars"></a>
+&nbsp;&nbsp;
+<a href="https://github.com/Muran-prog/mu-sim/commits/main"><img src="https://img.shields.io/github/last-commit/Muran-prog/mu-sim?style=for-the-badge&logo=git&logoColor=white&color=blue" alt="Last Commit"></a>
+&nbsp;&nbsp;
+<a href="https://github.com/Muran-prog/mu-sim"><img src="https://img.shields.io/github/repo-size/Muran-prog/mu-sim?style=for-the-badge&logo=github&logoColor=white&color=purple" alt="Repo Size"></a>
+&nbsp;&nbsp;
+<a href="https://github.com/Muran-prog/mu-sim/issues"><img src="https://img.shields.io/github/issues/Muran-prog/mu-sim?style=for-the-badge&logo=github&logoColor=white&color=orange" alt="Issues"></a>
+
+<br>
+<br>
+
 *Real-time physics simulation with deterministic behavior,*<br>
 *zero runtime allocations, and embedded systems compatibility.*
 
