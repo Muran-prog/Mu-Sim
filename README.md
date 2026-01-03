@@ -8,44 +8,45 @@
 
 <br>
 
-<a href="#"><img src="https://img.shields.io/badge/STATUS-IN_DEVELOPMENT-F09433?style=for-the-badge&logo=git&logoColor=white" alt="Status"></a>
-<a href="https://github.com/Muran-prog/mu-sim/actions"><img src="https://img.shields.io/github/actions/workflow/status/Muran-prog/mu-sim/ci.yml?branch=main&style=for-the-badge&logo=github&logoColor=white&label=CI&color=161B22" alt="CI"></a>
-
-<br>
-
-<a href="https://docs.rust-embedded.org/book/"><img src="https://img.shields.io/badge/no__std-READY-4EAA25?style=for-the-badge" alt="no_std"></a>
-<a href="https://www.rust-lang.org/"><img src="https://img.shields.io/badge/RUST-1.75+-DE5833?style=for-the-badge&logo=rust&logoColor=white" alt="Rust"></a>
-<a href="LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-4183C4?style=for-the-badge" alt="MIT"></a>
-
-<br>
-
 *Real-time physics simulation with deterministic behavior,*<br>
 *zero runtime allocations, and embedded systems compatibility.*
 
 <br>
 
-<a href="#quick-start">Quick Start</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#architecture">Architecture</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#crates">API</a>
+<!-- Main Status Badges -->
+<p>
+<img src="https://img.shields.io/badge/STATUS-IN_DEVELOPMENT-F09433?style=flat-square&logo=git&logoColor=white" alt="Status">
+<img src="https://img.shields.io/github/actions/workflow/status/Muran-prog/mu-sim/ci.yml?branch=main&style=flat-square&logo=github&logoColor=white&label=CI&color=161B22" alt="CI">
+<img src="https://img.shields.io/badge/LICENSE-MIT-4183C4?style=flat-square" alt="MIT">
+</p>
+
+<!-- Tech Stack Badges -->
+<p>
+<img src="https://img.shields.io/badge/RUST-1.75+-DE5833?style=flat-square&logo=rust&logoColor=white" alt="Rust">
+<img src="https://img.shields.io/badge/no__std-READY-4EAA25?style=flat-square" alt="no_std">
+</p>
+
+<br>
+
+[Quick Start](#quick-start) • [Architecture](#architecture) • [API Docs](#crates)
 
 <br>
 
 </div>
 
-<br>
+---
 
 <br>
 
-## Why Mu-Sim?
+## ✨ Why Mu-Sim?
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### Type-Safe Physics
+### 🎯 Type-Safe Physics
 
-Compile-time unit checking eliminates the classic
-*meters vs feet* disasters. Physical quantities carry
-their units in the type system — wrong conversions
-simply won't compile.
+Compile-time unit checking eliminates the classic *meters vs feet* disasters. Physical quantities carry their units in the type system — wrong conversions simply won't compile.
 
 ```rust
 let distance = Meters(100.0);
@@ -56,12 +57,9 @@ let velocity = distance / time; // MetersPerSecond
 </td>
 <td width="50%" valign="top">
 
-### Real-Time Ready
+### ⚡ Real-Time Ready
 
-Designed for deterministic simulation loops at
-fixed timesteps. No heap allocations in hot paths.
-Predictable, consistent timing for
-hardware-in-the-loop testing.
+Designed for deterministic simulation loops at fixed timesteps. No heap allocations in hot paths. Predictable, consistent timing for hardware-in-the-loop testing.
 
 ```rust
 // Fixed 1kHz physics loop
@@ -75,12 +73,9 @@ loop {
 <tr>
 <td width="50%" valign="top">
 
-### High-Performance LUTs
+### 📊 High-Performance LUTs
 
-Engine maps, tire curves, aerodynamic tables —
-all use O(log n) binary search with linear,
-bilinear, and trilinear interpolation.
-Cache-friendly, branch-minimized.
+Engine maps, tire curves, aerodynamic tables — all use O(log n) binary search with linear, bilinear, and trilinear interpolation. Cache-friendly, branch-minimized.
 
 ```rust
 let torque = engine_map.lookup(rpm);
@@ -90,12 +85,9 @@ let grip = tire_model.lookup(slip, load);
 </td>
 <td width="50%" valign="top">
 
-### Embedded Compatible
+### 🔧 Embedded Compatible
 
-Full `no_std` support from day one.
-Run on desktop simulators during development,
-deploy to embedded ECUs in production.
-Same codebase, same behavior.
+Full `no_std` support from day one. Run on desktop simulators during development, deploy to embedded ECUs in production. Same codebase, same behavior.
 
 ```rust
 #![no_std]
@@ -108,7 +100,7 @@ use vd_math::Lut1D;
 
 <br>
 
-## Architecture
+## 🏗 Architecture
 
 The engine is built as a modular ecosystem of specialized crates, ensuring strict isolation and fast compilation.
 
@@ -133,24 +125,24 @@ graph LR
     math --> Physics
     Physics --> telemetry
     chassis --> Physics
-Module Breakdown
-<details>
-<summary><b>vd_types</b> — Physical Units</summary>
-Type-safe SI units using Rust's type system to prevent dimensional errors at compile time.
-</details>
-<details>
-<summary><b>vd_math</b> — Linear Algebra & Interpolation</summary>
-Wrappers over <code>nalgebra</code> and high-performance Lookup Tables (LUTs).
-</details>
-<details>
-<summary><b>vd_telemetry</b> — Zero-Cost Telemetry</summary>
-A trait-based system that compiles away to nothing when not in use.
-</details>
 ```
 
 <br>
 
-## Crates
+### 📦 Module Breakdown
+
+**`vd_types`** — Physical Units  
+Type-safe SI units using Rust's type system to prevent dimensional errors at compile time.
+
+**`vd_math`** — Linear Algebra & Interpolation  
+Wrappers over `nalgebra` and high-performance Lookup Tables (LUTs).
+
+**`vd_telemetry`** — Zero-Cost Telemetry  
+A trait-based system that compiles away to nothing when not in use.
+
+<br>
+
+## 📚 Crates
 
 <details>
 <summary><b>vd_types</b> — Physical Units</summary>
@@ -235,7 +227,7 @@ simulate(&mut noop);
 
 <br>
 
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
 # Clone
@@ -250,21 +242,6 @@ cargo test --all
 # Lint
 cargo clippy --all
 ```
-
-<br>
-
-## Roadmap
-
-| Status | Crate | Description |
-|:------:|:------|:------------|
-| :white_check_mark: | **vd_types** | SI units with compile-time dimensional analysis |
-| :white_check_mark: | **vd_math** | Linear algebra, quaternions, lookup tables |
-| :white_check_mark: | **vd_telemetry** | Zero-cost telemetry with ring buffers |
-| :construction: | **vd_tire** | Pacejka Magic Formula tire model |
-| :construction: | **vd_suspension** | Spring-damper systems, anti-roll bars |
-| :construction: | **vd_chassis** | Rigid body dynamics, inertia tensor |
-| :construction: | **vd_powertrain** | Engine, clutch, gearbox, differential |
-| :construction: | **vd_aero** | Drag, downforce, aerodynamic maps |
 
 ---
 
