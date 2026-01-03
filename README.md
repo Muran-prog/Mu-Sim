@@ -9,25 +9,17 @@
 <br>
 
 <a href="https://github.com/Muran-prog/mu-sim/actions"><img src="https://img.shields.io/github/actions/workflow/status/Muran-prog/mu-sim/ci.yml?branch=main&style=for-the-badge&logo=github&logoColor=white&label=CI&color=161B22" alt="CI"></a>
-&nbsp;&nbsp;
 <a href="https://www.rust-lang.org/"><img src="https://img.shields.io/badge/RUST-1.75+-DE5833?style=for-the-badge&logo=rust&logoColor=white" alt="Rust"></a>
-&nbsp;&nbsp;
 <a href="https://docs.rust-embedded.org/book/"><img src="https://img.shields.io/badge/no__std-READY-4EAA25?style=for-the-badge" alt="no_std"></a>
-&nbsp;&nbsp;
 <a href="LICENSE"><img src="https://img.shields.io/badge/LICENSE-MIT-blue?style=for-the-badge" alt="MIT"></a>
 
 <br>
-<br>
 
 <a href="https://github.com/Muran-prog/mu-sim"><img src="https://img.shields.io/github/stars/Muran-prog/mu-sim?style=for-the-badge&logo=github&logoColor=white&color=yellow" alt="Stars"></a>
-&nbsp;&nbsp;
 <a href="https://github.com/Muran-prog/mu-sim/commits/main"><img src="https://img.shields.io/github/last-commit/Muran-prog/mu-sim?style=for-the-badge&logo=git&logoColor=white&color=blue" alt="Last Commit"></a>
-&nbsp;&nbsp;
 <a href="https://github.com/Muran-prog/mu-sim"><img src="https://img.shields.io/github/repo-size/Muran-prog/mu-sim?style=for-the-badge&logo=github&logoColor=white&color=purple" alt="Repo Size"></a>
-&nbsp;&nbsp;
 <a href="https://github.com/Muran-prog/mu-sim/issues"><img src="https://img.shields.io/github/issues/Muran-prog/mu-sim?style=for-the-badge&logo=github&logoColor=white&color=orange" alt="Issues"></a>
 
-<br>
 <br>
 
 *Real-time physics simulation with deterministic behavior,*<br>
