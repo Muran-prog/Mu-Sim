@@ -32,28 +32,28 @@ macro_rules! define_unit {
             #[inline]
             #[must_use]
             pub fn abs(self) -> Self {
-                Self(self.0.abs())
+                Self(libm::fabs(self.0))
             }
 
             /// Returns the minimum of two values.
             #[inline]
             #[must_use]
             pub fn min(self, other: Self) -> Self {
-                Self(self.0.min(other.0))
+                Self(libm::fmin(self.0, other.0))
             }
 
             /// Returns the maximum of two values.
             #[inline]
             #[must_use]
             pub fn max(self, other: Self) -> Self {
-                Self(self.0.max(other.0))
+                Self(libm::fmax(self.0, other.0))
             }
 
             /// Clamps the value to the given range.
             #[inline]
             #[must_use]
             pub fn clamp(self, min: Self, max: Self) -> Self {
-                Self(self.0.clamp(min.0, max.0))
+                Self(libm::fmax(min.0, libm::fmin(self.0, max.0)))
             }
 
             /// Returns true if the value is finite.

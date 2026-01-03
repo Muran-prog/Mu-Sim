@@ -158,7 +158,10 @@ mod tests {
 
         let negative = Radians(-core::f64::consts::FRAC_PI_2);
         let normalized_neg = negative.normalize();
-        assert!(approx_eq(normalized_neg.0, 3.0 * core::f64::consts::FRAC_PI_2));
+        assert!(approx_eq(
+            normalized_neg.0,
+            3.0 * core::f64::consts::FRAC_PI_2
+        ));
     }
 
     #[test]

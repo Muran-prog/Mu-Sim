@@ -13,7 +13,10 @@ pub(super) fn validate_axis(
     }
     for i in 1..axis.len() {
         if axis[i] <= axis[i - 1] {
-            return Err(LutError::UnsortedAxis { axis: name, index: i });
+            return Err(LutError::UnsortedAxis {
+                axis: name,
+                index: i,
+            });
         }
     }
     Ok(())

@@ -114,7 +114,7 @@ mod tests {
     fn test_conversion_factors() {
         // 1 bar = 100000 Pa
         assert!((BAR_TO_PA - 100_000.0).abs() < 1e-10);
-        
+
         // Round trip
         let bar = 2.5;
         let pa = bar * BAR_TO_PA;

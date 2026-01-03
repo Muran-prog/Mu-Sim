@@ -125,8 +125,7 @@ mod tests {
 
     #[test]
     fn test_out_of_bounds_low() {
-        let lut =
-            Lut1D::new(vec![10.0, 20.0, 30.0], vec![100.0, 200.0, 300.0]).expect("valid LUT");
+        let lut = Lut1D::new(vec![10.0, 20.0, 30.0], vec![100.0, 200.0, 300.0]).expect("valid LUT");
 
         assert!((lut.lookup(0.0) - 100.0).abs() < 1e-10);
         assert!((lut.lookup(-100.0) - 100.0).abs() < 1e-10);
@@ -134,8 +133,7 @@ mod tests {
 
     #[test]
     fn test_out_of_bounds_high() {
-        let lut =
-            Lut1D::new(vec![10.0, 20.0, 30.0], vec![100.0, 200.0, 300.0]).expect("valid LUT");
+        let lut = Lut1D::new(vec![10.0, 20.0, 30.0], vec![100.0, 200.0, 300.0]).expect("valid LUT");
 
         assert!((lut.lookup(40.0) - 300.0).abs() < 1e-10);
         assert!((lut.lookup(1000.0) - 300.0).abs() < 1e-10);

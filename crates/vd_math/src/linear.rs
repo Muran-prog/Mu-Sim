@@ -140,12 +140,12 @@ mod tests {
     #[test]
     fn test_quat_rotation() {
         use core::f64::consts::FRAC_PI_2;
-        
+
         // 90 degree rotation around Z axis
         let q = quat_from_axis_angle(&vec3_z(), FRAC_PI_2);
         let v = vec3_x();
         let result = q * v;
-        
+
         // X unit vector should become Y unit vector
         assert!((result.x).abs() < 1e-10);
         assert!((result.y - 1.0).abs() < 1e-10);
