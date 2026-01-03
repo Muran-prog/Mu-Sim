@@ -118,9 +118,14 @@ mu-sim/
 │   ├── MetersPerSecond, Newtons, Watts...
 │   └── Compile-time dimensional analysis
 │
-└── vd_math           Mathematical primitives  
-    ├── Vec3, Mat3, Quat (via nalgebra)
-    └── Lut1D, Lut2D, Lut3D interpolators
+├── vd_math           Mathematical primitives  
+│   ├── Vec3, Mat3, Quat (via nalgebra)
+│   └── Lut1D, Lut2D, Lut3D interpolators
+│
+└── vd_telemetry      Zero-cost telemetry system
+    ├── TelemetryProvider trait
+    ├── NoOpTelemetry (ZST, compiles to nothing)
+    └── MemoryRecorder (ring buffer)
 ```
 
 <br>
@@ -176,6 +181,38 @@ let mu = tire.lookup(8.5, 0.12);     // Bilinear interpolation
 
 </details>
 
+<details open>
+<summary><b>vd_telemetry</b> — Zero-Cost Telemetry</summary>
+
+<br>
+
+Feature-gated telemetry that compiles to nothing when disabled.
+
+```rust
+use vd_telemetry::{TelemetryProvider, NoOpTelemetry};
+
+fn simulate<T: TelemetryProvider>(telemetry: &mut T) {
+    let speed_id = telemetry.register_channel("vehicle.speed", "m/s");
+    
+    // Hot loop - zero overhead when telemetry disabled
+    loop {
+        let speed = compute_speed();
+        telemetry.log(speed_id, speed);  // Compiles to nothing with NoOpTelemetry
+    }
+}
+
+// With feature "enable_telemetry":
+// use vd_telemetry::MemoryRecorder;
+// let mut recorder = MemoryRecorder::with_defaults();
+// simulate(&mut recorder);
+
+// Without feature (zero-cost):
+let mut noop = NoOpTelemetry;  // ZST: 0 bytes
+simulate(&mut noop);
+```
+
+</details>
+
 <br>
 
 ## Quick Start
@@ -202,6 +239,7 @@ cargo clippy --all
 |:--|:--|
 | **Zero-cost units** | `#[repr(transparent)]` newtypes — same assembly as raw `f64` |
 | **O(log n) lookups** | Binary search with branchless interpolation |
+| **Zero-cost telemetry** | `NoOpTelemetry` is ZST, all calls inline to nothing |
 | **Inline everything** | `#[inline]` on all hot paths |
 | **Aggressive LTO** | `lto = "fat"`, single codegen unit, stripped symbols |
 

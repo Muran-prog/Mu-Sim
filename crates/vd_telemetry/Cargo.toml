@@ -1,0 +1,25 @@
+[package]
+name = "vd_telemetry"
+description = "Zero-cost telemetry system for Vehicle Dynamics Engine"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[features]
+default = []
+std = ["alloc", "serde?/std"]
+alloc = []
+serde = ["dep:serde"]
+enable_telemetry = ["alloc"]
+
+[dependencies]
+serde = { workspace = true, optional = true }
+vd_math = { path = "../vd_math" }
+libm = "0.2"
+
+[lints]
+workspace = true
+
+[dev-dependencies]

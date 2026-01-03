@@ -219,6 +219,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "vd_telemetry"
+version = "0.1.0"
+dependencies = [
+ "libm",
+ "serde",
+ "vd_math",
+]
+
+[[package]]
 name = "vd_types"
 version = "0.1.0"
 dependencies = [
